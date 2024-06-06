@@ -1,0 +1,31 @@
+﻿@inherits LayoutComponentBase;
+
+
+<Toasts class="p-3" AutoHide="true" Delay="4000" Placement="ToastsPlacement.TopRight" />
+<div>
+    <NavMenu></NavMenu>
+</div>
+
+<AuthorizeView Roles="admin">
+<Authorized>
+<LaboEventFrontEnd.Pages.Admin.NavAdmin></LaboEventFrontEnd.Pages.Admin.NavAdmin>
+    </Authorized>
+</AuthorizeView>
+
+
+<div class="page">
+
+    <main>
+        <article class="content px-4">
+            @Body
+        </article>
+
+        <Footer></Footer>
+    </main>
+</div>
+
+
+
+@code{
+    [Inject] public ToastService ToastService { get; set; }
+}

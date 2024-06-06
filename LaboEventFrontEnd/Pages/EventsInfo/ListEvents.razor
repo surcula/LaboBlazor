@@ -1,0 +1,65 @@
+﻿@page "/eventsList"
+@using LaboEventFrontEnd.Models
+
+<div class="container">
+    <h1 class="mt-5">Liste des événements</h1>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <AuthorizeView Roles="admin">
+                    <Authorized>
+                        <th scope="col">ID</th>
+                    </Authorized>
+                </AuthorizeView>
+                <th scope="col">Titre</th>
+                <th scope="col">Date de début</th>
+                <th scope="col">Date de fin</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Statut</th>
+                <AuthorizeView Roles="admin">
+                    <Authorized>
+                        <th scope="col">Actions</th>
+                    </Authorized>
+                </AuthorizeView>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (Events e in ListEvent)
+            {
+                <tr>
+                    <AuthorizeView Roles="admin">
+                        <Authorized>
+                            <td>@e.EventId</td>
+                        </Authorized>
+                    </AuthorizeView>
+                    <td>@e.Title</td>
+                    <td>@e.BeginDate.ToString("dd/MM/yyyy")</td>
+                    <td>@e.EndDate.ToString("dd/MM/yyyy")</td>
+                    <td>@e.Address</td>
+                    <td>@e.Status</td>
+
+                    <AuthorizeView Roles="admin">
+                        <Authorized>
+                            <td>
+                                <a class="text-info" title="Details" >
+                                    <i class="fa fa-info-circle"></i>
+                                </a>
+                                <a href="/EditEvent/@e.EventId" class="text-warning mx-2" title="Edit">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a class="text-danger" title="Delete" @onclick="()=>DeleteConfirmation(e.EventId)">
+                                    <i class="fa fa-trash trash-icon"></i>
+                                </a>
+                            </td>
+                        </Authorized>
+                    </AuthorizeView>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+
+

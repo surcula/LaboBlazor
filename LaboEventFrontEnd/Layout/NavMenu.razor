@@ -1,0 +1,50 @@
+﻿<!-- Header Section Begin -->
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a href="/">
+                        <img src="img/logo.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="header__nav">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li class="active"><a href="/">Homepage</a></li>
+                            <li>
+                                <a href="./categories.html">Categories <span class="arrow_carrot-down"></span></a>
+                                <ul class="dropdown">
+                                    <li><a href="/categories">Toutes les Categories</a></li>
+                                    <AuthorizeView>
+                                        <Authorized>
+                                            <li><a href="/profil">Mon Profil</a></li>
+                                            <li><a href="/logout">se déconnecter</a></li>
+                                        </Authorized>
+                                        <NotAuthorized>
+                                            <li><a href="/login">Login</a></li>
+                                            <li><a href="/register">Créer un nouveau compte</a></li>
+                                        </NotAuthorized>
+                                    </AuthorizeView>  
+                                </ul>
+                            </li>                            
+                            <li><a href="#Contact">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <AuthorizeView>
+                <Authorized>
+                    <div class="col-lg-2">
+                        <div class="header__right">
+                            <a href="/profil"><span class="icon_profile"></span></a>
+                        </div>
+                    </div>
+                </Authorized>                
+            </AuthorizeView>   
+        </div>        
+    </div>
+</header>
+

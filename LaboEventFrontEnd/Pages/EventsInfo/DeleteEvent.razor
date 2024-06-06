@@ -1,0 +1,10 @@
+﻿@page "/DeleteEventById/{EventId:int}"
+
+<div class="container text-center">
+    <h4>Voulez-vous vraiment supprimer cet événement ?</h4>
+    <div class="mt-4">
+        <button class="btn btn-danger mr-2" @onclick="ConfirmDelete">Oui</button>
+        <button class="btn btn-secondary" @onclick="CancelDelete">Non</button>
+    </div>
+</div>
+

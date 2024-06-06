@@ -1,0 +1,18 @@
+﻿@page "/categories"
+@using LaboEventFrontEnd.Models
+
+<h3>Les Categories</h3>
+
+
+@if (Themes == null || Themes.Count == 0)
+{
+    <div>Veuillez réessayer plus tard.</div>
+}
+else
+{
+    @foreach (Themes theme in Themes)
+    {
+        <div>@theme.Theme</div>
+    }
+}
+
